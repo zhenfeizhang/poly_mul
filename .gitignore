@@ -1,0 +1,7 @@
+.DS_Store
+target/
+Cargo.lock
+*.txt
+*.pyc
+__pycache__
+c_example

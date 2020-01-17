@@ -1,0 +1,38 @@
+[package]
+name = "poly_mul"
+
+version = "0.1.0"
+authors = [
+    "Zhenfei Zhang <zhenfei@algorand.com>",
+]
+license = "MIT"
+
+description = "A crate to handle polynomial multiplications"
+homepage = "https://github.com/zhenfeizhang/poly_mul"
+repository = "https://github.com/zhenfeizhang/poly_mul"
+autobenches = false
+
+[dependencies]
+rand = "0.7"
+sha2 = "0.8"
+bigint = { version = "4", default-features = false }
+libc = { version = "0.2", features = ["align"] }
+zeroize = {version = "1.1", features = ["zeroize_derive"]}
+
+[dev-dependencies]
+hex-literal = "0.1"
+criterion = "0.2.11"
+walkdir = "2.2.7"
+
+
+[features]
+default = ["degree512"]
+degree512 = []
+degree1024 = []
+degree65536 = []
+
+
+[lib]
+# we need a rust lib for cargo bench
+# and a static lib for c-binder
+crate-type = ["lib", "staticlib"]

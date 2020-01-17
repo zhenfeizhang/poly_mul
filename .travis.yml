@@ -1,0 +1,13 @@
+language: rust
+rust:
+  - stable
+#  - beta
+#  - nightly
+
+before_script:
+  - rustup component add clippy
+  # - cargo install --force cbindgen
+
+script:
+  - cargo clippy --all-targets --all-features -- -D warnings
+  - cargo test
