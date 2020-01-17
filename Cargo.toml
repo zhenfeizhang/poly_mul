@@ -25,11 +25,11 @@ criterion = "0.2.11"
 walkdir = "2.2.7"
 
 
-[features]
-default = ["degree512"]
-degree512 = []
-degree1024 = []
-degree65536 = []
+# [features]
+# default = ["degree256"]
+# degree512 = []
+# degree1024 = []
+# degree65536 = []
 
 
 [lib]
