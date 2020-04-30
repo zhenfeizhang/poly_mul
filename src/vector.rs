@@ -22,13 +22,14 @@ impl VectorOfRingElement {
         res
     }
 
-    pub fn left_mul_matrix(a: &Self, b: &MatrixOfRingElement) {
+    pub fn left_mul_matrix(a: &Self, b: &MatrixOfRingElement) -> Self {
         assert_eq!(a.0.len(), b.0.len());
         let c = MatrixOfRingElement::transpose(b);
         let mut res = Self(vec![]);
         for e in c.0 {
             res.0.push(Self::inner_product(&a, &Self(e)))
         }
+        res
     }
 }
 
@@ -44,7 +45,7 @@ impl MatrixOfRingElement {
         for i in 0..column {
             let mut tmp: Vec<RingElement> = vec![];
             for j in 0..row {
-                tmp.push(self.0[i][j].clone());
+                tmp.push(self.0[j][i].clone());
             }
             res.push(tmp);
         }
